@@ -55,3 +55,9 @@ Step 3: \[Say Hi\]
 Start at Step 3, go back to Step 2, then to Step 1, until you identify where the problem began. Implement a fix, then test again, and repeat until your program works from Step 1 all the way through to Step 3.
 
 > Create a problem-solving example using a roadmap and the process of elimination for narrowing down issues of your own. You already use this skill daily. Break down and explain a problem you solve in your everyday life.
+
+A: Troubleshooting signal level issues with field technicians
+
+Problem: Out of compliance signal strength at customer premise equipment
+
+Roadmap: \[Distribution Tap\] \> \[Coaxial Cable 1\] \> \[Bonding Point of Entry\] \> \[Coaxial Cable 2\] \> \[Customer Premise Equipment\]
