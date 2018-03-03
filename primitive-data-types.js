@@ -1,1 +1,1 @@
-'Raimond Edward Fowler'.charAt(0)
+console.log('Raimond Edward Fowler'.charAt(0));

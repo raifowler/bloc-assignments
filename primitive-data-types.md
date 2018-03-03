@@ -19,3 +19,11 @@ A: You would use the function `toString()`
 > What built-in function\/method would you use to determine the length of a given String?
 
 A: You would use the property `.length` to determine the length of a given String.
+
+**Code**
+
+```javascript
+
+console.log('Raimond Edward Fowler'.charAt(0));
+
+```
