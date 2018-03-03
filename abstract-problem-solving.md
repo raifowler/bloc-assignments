@@ -9,7 +9,11 @@
 
 A: How to make a phone call:
 
-1. 
+1. Identify the phone number you would like to call.
+* Phone numbers in the US are typically 10 digits and follow this format: /(/#/#/#/)/-/#/#/#/-/#/#/#/#
+* Phone numbers can be identified in many ways, more commonly by asking someone who already knows the phone number, or by searching for the business or location on the internet. You can also use a phone book, or you can skip to step 2, and when you reach the step to dial a phone number, dial 411. 411 is an information line, and can provide you with a phone number if it is listed in the public directory.
+
+2. After you know what phone number you would like to call, locate a working telephone
 
 > In our "Say Hi" example, if the Say Hi part of the program never runs, how would you narrow down the problem?
 
