@@ -43,6 +43,15 @@ Congratulations, you have successfully made a telephone call.
 
 > In our "Say Hi" example, if the Say Hi part of the program never runs, how would you narrow down the problem?
 
+A: Isolate the problem by working backwards from "Say Hi" to the previous step, and continuing with each step until you locate where the program functioned properly. At that point you know that between the step working properly, and the next step is where your problem lies.
+
 > What would the roadmap for narrowing down the Say Hi problem look like?
+
+A:
+Step 1: \[User Name Input\]
+Step 2: \[User Button Click\]
+Step 3: \[Say Hi\]
+
+Start at Step 3, go back to Step 2, then to Step 1, until you identify where the problem began. Implement a fix, then test again, and repeat until your program works from Step 1 all the way through to Step 3.
 
 > Create a problem-solving example using a roadmap and the process of elimination for narrowing down issues of your own. You already use this skill daily. Break down and explain a problem you solve in your everyday life.
