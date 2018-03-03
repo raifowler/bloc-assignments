@@ -35,7 +35,7 @@ A: How to make a telephone call:
 5. After dialing the telephone number, put the telephone up to your ear, listen, and be prepared to respond by talking back into the microphone of the telephone.
 * At this point you have successfully made a telephone call, and you can have a conversation with the person on the other end of the call. After the telephone conversation, proceed to step 6.
 
-6. After you are finished with the telephone conversation, end the telephone call. so the telephone is ready for use the next time you want to make a telephone call.
+6. After you are finished with the telephone conversation, end the telephone call, so the telephone is ready for use the next time you want to make a telephone call.
 * Using a wired telephone, put the telephone back onto the base so that it is fully seated around the edges and fits correctly.
 * Using a wireless telephone, push the end button to end the call, or deactivate the telephone.
 
