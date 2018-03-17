@@ -1,5 +1,18 @@
-var clothes = ['collared shirt', 'shirt'];
+var shoppingCart = [
+  {
+    id: 0,
+    name: 'Mens Shirt',
+    price: 20,
+    size: 'Large'
+  },
+  {
+    id: 1,
+    name: 'kids shirt',
+    price: 15,
+    size: 'small',
+  }
+]
 
-clothes.push('pants');
-
-console.log(clothes);
+for (var i = 0; i < shoppingCart.length; i++) {
+  console.log(shoppingCart[i].name);
+}
