@@ -1,18 +1,7 @@
-var shoppingCart = [
-  {
-    id: 0,
-    name: 'Mens Shirt',
-    price: 20,
-    size: 'Large'
-  },
-  {
-    id: 1,
-    name: 'kids shirt',
-    price: 15,
-    size: 'small',
-  }
-]
+var numbers = [1,2,3,4,5,6,7,8,9,2,3,4,5,6,1,2,3,4,5,6,7,8,8,4,3,2];
 
-for (var i = 0; i < shoppingCart.length; i++) {
-  console.log(shoppingCart[i].name);
-}
+var total = numbers
+  .filter(item => item < 4)
+  .reduce((total, item) => total + item);
+
+console.log(total);
