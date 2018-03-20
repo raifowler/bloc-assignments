@@ -10,7 +10,7 @@ A: The `filter` method will create a new array by defining a condition, and iter
 
 > What is the difference between the `map()` and the `filter()` function?
 
-A: The difference between the `map` and `filter` function is that the `map` function transforms each item within an array equally by applying the same function to each item, whereas the `filter` function only transforms items whose condition evaluates to `false`. 
+A: The difference between the `map` and `filter` function is that the `map` function transforms each item within an array equally by applying the same function to each item, whereas the `filter` function only transforms items whose condition evaluates to `false`.
 
 **Code**
 ```javascript
