@@ -1,7 +1,9 @@
-var numbers = [1,2,3,4,5,6,7,8,9,2,3,4,5,6,1,2,3,4,5,6,7,8,8,4,3,2];
+var shoppingCart = [20, 15];
 
-var total = numbers
-  .filter(item => item < 4)
-  .reduce((total, item) => total + item);
+function getTotalCost(prices) {
+  let total = 0;
+  total = prices.reduce((total, price) => total + price)
+  return total;
+}
 
-console.log(total);
+getTotalCost(shoppingCart);
