@@ -1,15 +1,11 @@
-var shoppingCart = [20, 15];
-
-function getTotalCost(prices) {
-  let total = 0;
-  total = prices.reduce((total, price) => total + price)
-  return total;
+class Clothes {
+  constructor (name, size, price) {
+    this.name = name;
+    this.size = size;
+    this.price = price;
+  }
 }
 
-getTotalCost(shoppingCart);
+let shirt = new Clothes('Biker Jacket', 'medium', 20);
 
-for (var i = 0; i < array.length; i++) {
-  array[i]
-}
-
-typeof ''
+console.log(shirt);
