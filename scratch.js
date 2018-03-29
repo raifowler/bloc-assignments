@@ -1,11 +1,6 @@
-class Clothes {
-  constructor (name, size, price) {
-    this.name = name;
-    this.size = size;
-    this.price = price;
-  }
+const shirt = document.getElementById('list');
+
+shirt.onclick = (e) => {
+  console.log(e.target.innerText);
 }
-
-let shirt = new Clothes('Biker Jacket', 'medium', 20);
-
-console.log(shirt);
+ 
