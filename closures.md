@@ -2,7 +2,7 @@
 
 > What does "lexical scope" mean in JavaScript?
 
-A: 
+A:
 
 > What is an advantage of a programming language that uses lexical scoping?
 
@@ -15,3 +15,9 @@ A:
 > What would be a use case of a closure?
 
 A:
+
+**Code**
+
+```JavaScript
+
+```
