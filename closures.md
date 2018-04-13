@@ -17,7 +17,6 @@ A: A closure is when a function is inside of another function.
 A: You could create a primary function that uses different case functions that are defined inside of it depending on the need or input.
 
 **Code**
-
 ```JavaScript
 
 function raimondJob(title) {
