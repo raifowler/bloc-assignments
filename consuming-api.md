@@ -24,6 +24,8 @@ A: A javascript promise is a method used to handle potential errors, and control
 
 A: CORS allows resource sharing between sites of different domains. CORS is typically disabled to prevent malicious sites from prompting your browser to download harmful things. A proxy site can be used as a security measure to work within CORS restrictions. The proxy site acts as a middle man for your request, and gets the information first before sending it to your browser. 
 
+**Code**
+
 > Create a fetch request in JavaScript.
 
 A: 
@@ -41,7 +43,6 @@ fetch('https://api.github.com/users')
     .catch(err => console.log(err));
 ```
 
-**Code**
 > It is time to build HackerNews from scratch! But you need easy access to an API for a list of all the stories currently there. 
 * A. Go to News API and click 'Get API Key' sign up for a free API key. 
 * B. Use your API key to create a fetch using this URL: `https://newsapi.org/v2/top-headlines?sources=hacker-news&apiKey=<YOUR_API_KEY_HERE>`
