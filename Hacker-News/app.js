@@ -12,7 +12,7 @@ function loadNewsPosts() {
       articles.forEach(article => {
         output += `<li><a href="${article.url}" target="_blank">${article.title}</a></li>`;
       });
-      document.getElementById('output').innerHTML = output;
+      document.getElementById('output').innerHTML = output;n
     })
     .catch(err => console.log(err));
 }
