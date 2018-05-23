@@ -25,7 +25,13 @@ A: We use Kanban boards in Agile development to stay organized, and to have an e
 
 > Explain velocity, sprint, user story, card, and agile as if you were teaching another student. Give a real-world example for each.
 
-A: 
+A: Agile is a form of project management that uses columns to seperate different phases of a project, and cards to define the actual work needed to be done in a project. For example, if I were planning an event, I might have a column for 30 days before,  2 weeks before, 1 week before, day before, and day of. The 30 days before column would contain cards that needed to be completed 30 days before the event, the 2 weeks before column would contain cards that needed to be completed 2 weeks before the event, and so on and so forth for the rest of the columns. A card is a container that details the actual work that needs to be completed in a project. Each card would have a user story, tasks, epic, and any other relevant details. It would also contain an estimation which defines the size and complexity of the card. 
+
+A user story is a method used to describe the outcome of successfully completing the work on a card. 
+
+A sprint is a time delimited period of work.
+
+Velocity is the rate at which a development team works during a sprint. 
 
 > What are different estimation methods teams can use? Explain pros and cons of each method. Which method would you prefer?
 
