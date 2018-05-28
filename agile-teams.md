@@ -79,7 +79,7 @@ User Story: As a renter I want a list of potential apartments in the downtown ar
 
 Tasks: 
 * Search available apartments in zip code. 
-* Complie list of available apartments based on results.
+* Compile list of available apartments based on results.
 
 Estimate: 1
 
@@ -122,21 +122,142 @@ Estimate: 8
 
 Columns I would have would be:
 * To Do
-* In progress
+* In Progress
 * Done
 
 
 > Imagine you are creating a nursery for a new baby. Write each card that would be in this epic. Estimate each card. What columns would you need to have on your Kanban board?
 
-Card 1
+A: Card 1: 
+User Story: As a parent I want to clearly define my nursery needs, so my child will be safe, and we will have everything we need to care for him/her. 
+
+Tasks:
+* Write list of needs in a nursery
+* Write list of wants in a nursery
+
+Estimate: 3
+
+
+Card 2: 
+User Story: As a homeowner I want to create a nursery that can easily be changed into a bedroom as my child grows up. 
+
+Tasks: 
+* Review list of needs and wants to identify anything that would be difficult to change in the future. 
+* Consider changing some of those items to be more universal and not as permanent. 
+
+Estimate: 2
+
+
+Card 3:
+User Story: As a homeowner I want to complete this project before the baby is born, so I am not worrying about it and can focus on being a parent.
+
+Tasks:
+* Set a timeline for this project do to be done before the baby is born.
+* Determine if you need to hire a contractor.
+* Make a list of supplies and equipment to purchase.
+* Shop around to get quotes and find the best deal.
+* Purchase the items needed as you find the best deal. 
+
+Estimate: 5
+
+
+Card 4: 
+User Story: As a homeowner I want to hire a contractor for any work that requires a permit.
+
+Tasks:
+* Contact contractors for estimates.
+* Ask friends for referrals.
+* Hire a contractor.
+
+Estimate: 5
+
+Card 5:
+User Story: As a homeowner I want to make sure the work is done to the correct specifications so I know I'm getting what I'm paying for.
+
+Tasks:
+* Set milestones to check in with contractor and review work completed.
+* Periodically check work randomly.
+* Check in on set milestones and review expectations.
+* Pay contractor after work is complete to satisfaction.
+
+Estimate: 13
+
+Card 6:
+User Story: As a parent I want to place items in the nursery and paint it together with my spouse, so we are both happy with the end result and ready for our baby.
+
+Tasks:
+* Go over color options with spouse and select three to get samples of.
+* Take samples home and put them on walls to get a feel for the color and allow time for a decision to be made.
+* Choose a color and purchase the quantity of paint needed.
+* Plan a day or two to paint room, and then paint room.
+* Clean up room and move items in together.
+* Sit back relax and enjoy the fruit of your labor. 
+
+Estimate: 13
+
+Columns I would have would be:
+* To Do
+* In Progress
+* Done
 
 > Imagine you are planning a vacation. Write each card that would be in this epic. Estimate each card. What columns would you need to have on your Kanban board?
+
+A: Card 1: 
+User Story: As a hard worker I want to have a fun and relaxing time, so I can be well rested and rejuvenated after my time off work. 
+
+Tasks:
+* Write list of fun activities
+* Write list of relaxing activities
+
+Estimate: 2
+
+
+Card 2: 
+User Story: As a financially savvy person I want to maximize the value of my money so I don't waste it. 
+
+Tasks: 
+* Research items you plan on spending money on. (i.e. gifts, experiences, tours, lodging, transportation, etc.)
+* Keep your research handy, so you can reference it while on your vacation.
+
+Estimate: 3
+
+
+Card 3:
+User Story: As a vacationer I want to have as much done as possible before my trip so I don't have to worry about it on the trip.
+
+Tasks:
+* Buy a plane ticket.
+* Reserve lodging.
+* Reserve transportation.
+* Make a list of items you need to bring.
+* Pack at least 2 days ahead of time. 
+* Review and secure any necessary documentation. (i.e. passport, visa)
+
+Estimate: 5
+
+
+Card 4: 
+User Story: As a vacationer I want to have the best time of my life, and document it so I can remember it.
+
+Tasks:
+* Make sure you have everything needed for your camera and phone to function properly. 
+* Take your vacation and have a great time. 
+
+Estimate: 1
+
+
+Columns I would have would be:
+* To Do
+* In Progress
+* Done
 
 > What is an MVP?
 
 A: An MVP is a minimum viable product, and it is a version of a new product that allows a team to capture the maximum amount of learning about users with the least amount of effort. 
 
 > Explain in your own words what a dual-track system is and what advantages it provides.
+
+A: A dual track system is combinining both discovery and delivery into simultaneous paths for teams to work on. This means that as new products or features are being conceived, other products or features are being developed at the same time. Contrast that with a single track system of conceiving a product or feature then developing it. While it's being conceived, delevopers are waiting, and while it's being developed, designers are waiting. The dual track system maximizes the time of both sides of the project, and prevents down time. A downfall of this could be a lack of availability on the product that is being delivered on the side of the discovery team, and vice versa. 
 
 
 **Project**
@@ -147,6 +268,8 @@ A: An MVP is a minimum viable product, and it is a version of a new product that
 
 > Break the work into slices and epics as needed.
 
-> Estimate your coards.
+> Estimate your cards.
 
 > Explain what estimation methods you used.
+
+A: I used the fibonacci sequence combined with the color labels available on Trello. I assigned each color a number, then I would assign the colors to cards based on the cards estimation. During estimation I found I needed to break some cards up into multiple cards. 
