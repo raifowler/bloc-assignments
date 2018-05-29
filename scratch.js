@@ -1,44 +1,51 @@
-class Product {
-  constructor (description, price) {
-    this.description = description;
-    this.price = price;
+// Prototype for a product
+var Product = {
+  isPackaged: false,
+  isLoaded: false,
+  color: "uncolored",
+  paint: function (color) {
+    // The Painting Station will paint the product the desired color.
+    console.log("Painting product " + color + ".");
+    this.color = color;
+    console.log("Product painted " + color + ".");
+  },
+  package: function (shippingType) {
+    // The Packaging Station will package the product for the shipping type specified.
+    // E.g. Next Day Shipping
+    console.log("Packaging product for " + shippingType + ".");
+    this.shippingType = shippingType;
+    this.isPackaged = true;
+    console.log("Product packaged for " + shippingType + ".");
+  },
+  loadOnTruck: function () {
+    // The Loading Station will load the product on a truck to be shipped
+    // to the customer.
+    console.log("Loading product onto truck.");
+    this.isLoaded = true;
+    console.log("Product loaded onto the truck.");
   }
+};
 
-  getDescription () {
-    return "Description: " + this.description;
-  }
+var order = function (color, shippingType) {
+  // Creation Station: basic product is created.
 
-  getPrice () {
-    return "Price: " + this.price;
-  }
-}
+  // Object.create will create a new object that has Product as
+  // the prototype of that object. This means that any property lookups
+  // performed will look first at the instance and then at Product.
+  var product = Object.create(Product);
 
-class Shirt extends Product {
-  constructor (description, price) {
-    super(description, price);
-  }
-}
+  console.log("Basic product created.");
 
-class Jacket extends Product {
-  constructor (description, price) {
-    super(description, price);
-  }
-}
+  // Painting Station: product is painted.
+  product.paint(color);
 
-class Scarf extends Product {
-  constructor (description, price) {
-    super(description, price);
-  }
-}
+  // Packaging Station: product is packaged to be shipped.
+  product.package(shippingType);
 
-let trenchCoat = new Jacket('Trench Coat', 50);
-console.log(trenchCoat.getDescription());
-console.log(trenchCoat.getPrice());
+  // Loading Station: product is loaded onto a truck.
+  product.loadOnTruck();
 
-let tShirt = new Shirt('T-Shirt', 15);
-console.log(tShirt.getDescription());
-console.log(tShirt.getPrice());
+  return product;
+};
 
-let infinity = new Scarf('Infinity Scarf', 8);
-console.log(infinity.getDescription());
-console.log(infinity.getPrice());
+order("red", "next day");
