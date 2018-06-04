@@ -17,7 +17,7 @@ console.log(squared(5));
 
 
 const food = function() {
-  return `Steak, pasta, and ice cream!`;
+  return ['Steak', 'Pasta', 'Ice Cream'];
 };
 
 console.log(food());
