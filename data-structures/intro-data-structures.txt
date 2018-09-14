@@ -1,0 +1,70 @@
+1. A line of people at an amusement park ride.
+  - The line is composed of members, represented as strings.
+  - There is a front to the line, as well as a back.
+  - When someone enters the line, place them at the end.
+  - People may leave the line whenever they see fit, and those behind them take their place.
+
+  Given the above real-world information, use an array data structure to code the following solution.
+
+  a) Use an array input: ["Vivian", "Ava", "Josh", "Patrick", "Mike"]
+
+  A:
+    let rideLine = ["Vivian", "Ava", "Josh", "Patrick", "Mike"];
+
+  b) Insert a new person, "Mary" at the end of the line. In other words, you should insert Mary after Mike.
+
+  A:
+    const getInLine = (line, person) => {
+      line.push(person);
+    };
+
+    getInLine(rideLine, "Mary");
+
+  c) Find a person in line named "Josh." This function should return the position of 2 in the array, (recall that arrays are 0-based).
+
+  A:
+    const findPerson = (line, person) => {
+      return line.indexOf("Josh");
+    };
+
+    findPerson(rideLine, "Josh");
+
+  d) Find a person in line named "Emily." What should your function return if it does not find the item in the array?
+
+  A:
+    const findPerson = (line, person) => {
+      let linePosition = line.indexOf(person);
+      if (linePosition !== -1) {
+        return linePosition;
+      } else {
+        return `I'm sorry, ${person} is not in this line.`;
+      }
+    };
+
+    findPerson(rideLine, "Emily");
+
+  e) What if Ava wants to allow a friend, "Melissa", to cut in line in front of her? How would you code this so Melissa appears before Ava?
+
+  A:
+    const cutInLine = (line, personInLine, newPerson) => {
+      line.splice(line.indexOf(personInLine), 0, newPerson);
+    };
+
+    cutInLine(rideLine, "Ava", "Melissa");
+
+  f) If Patrick wants to leave the line, how would you delete him from the array?
+
+  A:
+    const leaveLine = (line, person) => {
+      line.splice(line.indexOf(person), 1);
+    };
+
+    leaveLine(rideLine, "Patrick");
+
+2. Provide another real-world example that you can model using a data structure.
+
+A: A list of orders placed at a restaurant.
+
+3. How would your data structure allow developers to access and manipulate the data?
+
+A: An API would need to be created and provided for developers to access and manipulate the data. 
