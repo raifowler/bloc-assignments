@@ -258,6 +258,22 @@ END FUNCTION
     }
   };
 
+  REVISED ANSWER:
+
+  const hasDuplicates = array => {
+    let sortedArray = array.slice().sort();
+
+    for (let i = 0; i > sortedArray.length; i++) {
+      if (sortedArray[i] !== sortedArray[i + 1] && i === sortedArray.length - 1) {
+        return false;
+      } else if (sortedArray[i] !== sortedArray[i + 1]) {
+        continue;
+      } else if (sortedArray[i] === sortedArray[i + 1]) {
+        return true;
+      }
+    }
+  };
+
   8. Anagram, An anagram is a word, phrase, or name formed by rearranging the letters of another word. For example, spar can be formed from rasp. Given two strings, stringOne and stringTwo, determine if stringOne is an anagram of stringTwo. Assume that the strings contain only lowercase letters and do not worry about case-sensitivity. HINT: Your first task will be to convert the strings to arrays.
 
   A:
