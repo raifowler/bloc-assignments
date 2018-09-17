@@ -1,0 +1,82 @@
+1. What is the main difference between a stack and a queue?
+
+The main difference between a stack and a queue is the prioritization of which elements leave the list first. In a stack, the last element added to the list is the first element that leaves the list. In a queue, the first element added to the list is the first element to leave the list. 
+
+2. What are the similarities between stacks and queues?
+
+Both are lists that prioritize the items inside of them. 
+
+3. Imagine you are an engineer tasked with implementing the UNDO and REDO options in a word processor such as Microsoft Word. Which data structure would you use for each option and why?
+
+For UNDO you want to know the most recent action, and that's the action you would want to retrieve. In this case you would use a stack, because the priority is last in first out. For REDO you would also want to know the most recent action so you could retrieve it as well. You would also use a stack in this case. These two would be linked to one another in that the UNDO stack would populate the REDO stack, because after you UNDO something the option to REDO it becomes available. So the item retrieved when performing UNDO would be pushed onto the REDO stack, so it could be retrieved if needed. 
+
+Programming Questions
+
+1. Given a string, reverse it using a stack. For example, the string "Bloc!" should be converted to "!colB".
+
+const reverseString = string => {
+  let stack = [];
+  let newString = "";
+
+  for (let i = 0; i < string.length; i++) {
+    stack.push(string.charAt(i));
+  }
+
+  while (stack.length > 0) {
+    newString += stack.pop();
+  }
+
+  return newString;
+};
+
+console.log(reverseString("Bloc!"));
+
+2. Implement the pop method of a stack using one queue. Make a FIFO data structure mirror the functionality of a LIFO data structure. Since the internal list is not the same as defined in the checkpoint, it may help to rewrite the pseudocode first.
+
+let lineQueue = ["Jim", "Pam", "Oscar", "Kevin", "Dwight", "Michael", "Angela"];
+
+const skipLine = line => {
+  for (let i = 0; i < line.length - 1; i++) {
+    let temp = line.shift();
+    line.push(temp);
+  }
+  return line.shift();
+};
+
+console.log(skipLine(lineQueue));
+
+console.log(lineQueue);
+
+console.log(skipLine(lineQueue));
+
+console.log(lineQueue);
+
+1. Implement the enqueue and dequeue methods defined in the checkpoint inside your own Queue class.
+
+class Queue {
+  constructor(queue) {
+    this.queue = queue;
+  }
+
+  enqueue(item) {
+    this.queue.push(item);
+  }
+
+  dequeue() {
+    this.queue.shift();
+  }
+}
+
+let lineQueue = new Queue([]);
+
+lineQueue.enqueue("Jim");
+
+console.log(lineQueue);
+
+lineQueue.enqueue("Pam");
+
+console.log(lineQueue);
+
+lineQueue.dequeue();
+
+console.log(lineQueue);
