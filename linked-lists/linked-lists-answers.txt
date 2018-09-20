@@ -1,0 +1,236 @@
+1. What are some of the pros and cons of using linked lists instead of arrays?
+
+A: Pro's: 
+- Linked lists do not require consecutive memory locations as arrays do
+- Creating a new item and removing an item from a linked list is a much more efficient operation, because it does not require all items to be shifted as an array does.
+
+Cons:
+- Searching a linked list is less efficient than searching an array, because it requires a beginning to end scan of all items until the searched item is found. In an array you can search by index. 
+
+2. Come up with a real world example of a linked list.
+
+A: I think a linked list would be good to track a line of people waiting for food at a food cart. You never know how many people are going to line up ahead of time, so you don't know how much memory you need for your list. You usually don't need to find someone in the middle of the line, you're only concerned with the person at the front of the line. So, searching would not be a high priority in this case, and adding and removing would be much more efficient than an array would provide. Especially if the line became very long. 
+
+Programming Questions
+
+1. The linked list `push` function should take a value, create a node, and add it to the end of a list. Below is pseudocode for a `push` function for a singly linked list. However, there is something wrong with it. Submit both an explanation of the bug and a functional implementation of the method.
+
+FUNCTION push(element)
+CREATE node
+SET node.value TO element
+SET node.next TO null
+
+IF the head node does not exist
+ THEN SET head to node
+ELSE
+ SET current to head
+ SET current.next to node
+END IF
+END FUNCTION
+
+Answer: The provided pseudocode does not traverse the linked list to get to the end of the list before adding the node to the list. Therefore this results in the second node in the list always being replaced by the new node. It does not add a node to the end of the list as expected, it actually replaces the second node of the list with the new node. My solution is to rewrite the pseudocode, then to instantiate a new linked list using a class, and then to execute the necessary method to push an item to the end of the linked list used an appendNode method.
+
+Corrected psuedocode:
+
+FUNCTION appendNode
+  GET value
+  SET newNode.value EQUAL to value
+  SET newNode.next EQUAL to null
+
+  IF head node is empty THEN
+    SET head node to newNode
+  ELSE
+    SET current EQUAL to head node
+    WHILE current.next is NOT EQUAL to null
+      SET current EQUAL to current.next
+    END WHILE
+    SET current.next EQUAL to newNode
+  END IF
+END FUNCTION
+
+Implemented Solution:
+
+class LinkedList {
+  constructor(value) {
+    this.head = null;
+    this.appendNode(value);
+  }
+
+  isEmpty() {
+    return this.head === null;
+  }
+
+  appendNode(value) {
+    const newNode = { value };
+    newNode.next = null;
+
+    if(this.isEmpty()) {
+      this.head = newNode;
+      return this;
+    }
+
+    let current = this.head;
+
+    while (current.next !== null) {
+      current = current.next;
+    }
+
+    current.next = newNode;
+  }
+}
+
+const list = new LinkedList(1);
+list.appendNode(2);
+list.appendNode(3);
+list.appendNode(4);
+
+2. Given an unsorted singly linked list, remove all duplicates from the linked list.
+  Example
+  Input: a -> c -> d -> d -> a 
+  Output: a -> c -> do
+
+A: Wow this was difficult to figure out. I went over the logic on my own for awhile and realized that I needed to have two loops. The first loop would give me a reference and the second loop nested inside would start at the node after the reference and traverse the rest of the nodes comparing it to the reference node. Then I had to figure out how to remove it, which wasn't as difficult as I thought but took a bit to figure out. After having the basic skeleton of this figured out I had to google this and read several articles regarding linked lists to solve the rest. 
+
+class LinkedList {
+  constructor(value) {
+    this.head = null;
+    this.appendNode(value);
+  }
+
+  isEmpty() {
+    return this.head === null;
+  }
+
+  appendNode(value) {
+    const newNode = { value };
+    newNode.next = null;
+
+    if(this.isEmpty()) {
+      this.head = newNode;
+      return this;
+    }
+
+    let current = this.head;
+
+    while (current.next !== null) {
+      current = current.next;
+    }
+
+    current.next = newNode;
+  }
+
+  removeDuplicates() {
+    let comparator = this.head;
+
+    while (comparator !== null) {
+      let comparatorReference = comparator.value;
+      let firstNode = comparator;
+      let secondNode = firstNode.next;
+
+      while (secondNode !== null) {
+        if (secondNode.value === comparatorReference) {
+          firstNode.next = secondNode.next;
+        } else {
+          firstNode = secondNode;
+        }
+        secondNode = secondNode.next;
+      }
+
+      comparator = comparator.next;
+    }
+  }
+}
+
+const list = new LinkedList(1);
+list.appendNode(2);
+list.appendNode(3);
+list.appendNode(2);
+list.appendNode(4);
+list.appendNode(1);
+
+list.removeDuplicates();
+
+console.log(list);
+
+3. Given an unsorted singly linked list, reverse it.
+  Example
+  Input: a -> b -> c -> d 
+  Output: d -> c -> b -> a
+
+A: Another really difficult one. Still running this through in my head trying to wrap my head around it. So, I don't know that this is actually reversing this list in a traditional sense, as much as it's moving different parts of it around until it's recreated backwards. Because the linked list is nested objects I couldn't do what I initially thought of doing, which was creating a temporary array reversing it and then making it a linked list. That was a bit of a nightmare trying to work out. So, the solution is to use variables (I used 3 of them) to hold different parts of the linked list, reassigning them as you go, starting from the head, until you get to the last node which is then reassigned and essentially becomes the root node. Then you set the head node to the variable that holds the new reversed list. I'm very thankful for google dev tools, spent a lot of time with the debugger statement, pausing and stepping through functions. Hope this is correct.
+
+class LinkedList {
+  constructor(value) {
+    this.head = null;
+    this.appendNode(value);
+  }
+
+  isEmpty() {
+    return this.head === null;
+  }
+
+  appendNode(value) {
+    const newNode = { value };
+    newNode.next = null;
+
+    if(this.isEmpty()) {
+      this.head = newNode;
+      return this;
+    }
+
+    let current = this.head;
+
+    while (current.next !== null) {
+      current = current.next;
+    }
+
+    current.next = newNode;
+  }
+
+  removeDuplicates() {
+    let comparator = this.head;
+
+    while (comparator !== null) {
+      let comparatorReference = comparator.value;
+      let firstNode = comparator;
+      let secondNode = firstNode.next;
+
+      while (secondNode !== null) {
+        if (secondNode.value === comparatorReference) {
+          firstNode.next = secondNode.next;
+        } else {
+          firstNode = secondNode;
+        }
+        secondNode = secondNode.next;
+      }
+
+      comparator = comparator.next;
+    }
+  }
+
+  reverseList() {
+    let before = this.head;
+    let after = null;
+
+    while (before !== null) {
+      let container = before.next;
+      before.next = after;
+      after = before;
+      before = container;
+    }
+
+    this.head = after;
+  }
+
+}
+
+const list = new LinkedList('a');
+list.appendNode('b');
+list.appendNode('c');
+list.appendNode('d');
+list.appendNode('e');
+list.appendNode('f');
+
+list.reverseList();
+
+console.log(list);
