@@ -1,0 +1,120 @@
+1. What is a hash table?
+
+A hash table is an array that is organized by a provided key, instead of the normal 0 indexed organization of a standard array. A hash table still has an index, but the index is used internally by the hash table instead of being directly accessed by a user, or program. 
+
+2. What is hashing?
+
+Hashing is the function that assigns a unique numerical, internally used identifier to a user, or program provided key. 
+
+3. How does a hash table store data?
+
+A hash table stores data in key value pairs, just like an object, but it stores key value pairs in an array and relies on a hashing function to give each key a unique numerical identifier to place it in it's own index. 
+
+4. How are hash tables and objects different?
+
+Hash tables and arrays are different in how they store data. Hash tables use memory in the same way an array does, contiguously, whereas objects do not have to be stored right next to each other. 
+
+5. Determine whether you would use a hash table or an object to store each of the following pieces of data:
+  - A list of pets and their unique names.
+  A: Hash table
+  - The name, age, and the birthday of your best friend. 
+  A: Object
+  - The name and location of every company in a given city.
+  A: Hash table
+  - All of the books checked out from a library by a particular individual.
+  A: Hash table
+  - The primary and secondary phone numbers for a contact.
+  A: Object
+
+6. Build a system that allows a sales associate to enter a customer's name, address, and phone number into the system and look up customers using their phone numbers. Store this information in a hash table.
+
+class CustomerList {
+  constructor() {
+    this.map = new Map();
+  }
+
+  add(customerName, customerAddress, customerPhone) {
+    this.map.set(customerPhone, {
+      name: customerName,
+      address: customerAddress,
+      phone: customerPhone
+    });
+  }
+
+  find(phone) {
+    return this.map.get(phone);
+  }
+}
+
+let customers = new CustomerList();
+
+customers.add("Jill", "123 Apple Street", 1234567890);
+
+console.log(customers.find(1234567890));
+
+7. Build a system that allows a store owner to track their store's inventory using a hash table for storage.
+
+class Inventory {
+  constructor() {
+    this.map = new Map();
+  }
+
+  addItem(itemId, itemDescription, itemPrice, itemQuantity) {
+    this.map.set(itemId, { barcode: itemId, description: itemDescription, price: itemPrice, quantity: itemQuantity });
+  }
+
+  updateItemQuantity(item, quantity) {
+    let product = this.map.get(item);
+    this.map.set(product.barcode, { barcode: product.barcode, description: product.description, price: product.price, quantity: quantity });
+  }
+
+  findItem(barcode) {
+    return this.map.get(barcode);
+  }
+}
+
+let storeInventory = new Inventory();
+
+storeInventory.addItem(98765, 'Personal Computer', 2000, 5);
+storeInventory.addItem(14578, 'Laptop', 2000, 10);
+
+storeInventory.updateItemQuantity(98765, 7);
+
+console.log(storeInventory.findItem(14578));
+
+8. Build a system that allows digital copies of newpapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.
+
+class NewspaperList {
+  constructor() {
+    this.map = new Map;
+  }
+
+  addNewspaper(barcode, publisher, publicationDate, content) {
+    this.map.set(barcode, { publisher: publisher, publicationDate: publicationDate, content: content });
+  }
+
+  search(publisher, publicationDate) {
+    let newspapers = this.map;
+    let result = null;
+
+    newspapers.forEach((value, key, map) => {
+      if (Object.values(value).includes(publisher) && Object.values(value).includes(publicationDate)) {
+        result = value;
+      }
+    })
+
+    if (result === null) {
+      result = 'Newspaper not found';
+    }
+
+    return result;
+  }
+}
+
+let newspapers = new NewspaperList();
+
+newspapers.addNewspaper(12345, 'New York Times', '09-26-2018', 'First newspaper entry');
+newspapers.addNewspaper(34567, 'Wall Street Journal', '09-27-2018', 'Second newspaper entry');
+newspapers.addNewspaper(56789, 'New York Times', '09-27-2018', 'Third newspaper entry');
+
+console.log(newspapers.search('New York Times', '09-26-2018'));
