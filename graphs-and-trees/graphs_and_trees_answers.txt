@@ -1,0 +1,122 @@
+1. What is a binary tree and what makes it unique to other trees?
+
+A binary tree is a collection of nodes in which one node is the root node, and each node in the tree can have a maximum of two nodes attached to it. Having the two children nodes is what seperates this tree from others. Some trees will have only one node attached to each node, and others will have more than two nodes attached to each other. 
+
+2. What is a heuristic?
+
+A heuristic is a problem solving method that is not necessarily going to offer the absolute best solution 100% of the time due to the complexity of the problem, but will offer a good enough solution for realistic application and performance measurements. 
+
+3. What is another problem besides the shortest-path problem that requires the use of heuristics?
+
+Decision making is probably the most frequent use of heuristics. When faced with a decision that could result in multiple unknown outcomes, you can determine your course of action based on the information that you have, and your previous experience with similar situations, but you have no guarantee that you will be achieving the optimal outcome until after the decision is made. 
+
+4. What is the difference between a depth-first search and a breadth-first search?
+
+A depth-first search is a vertical approach, searching top down from the root node down to the furthest child node in one direction then moving back in the other direction maintaining a vertical approach. A breadth-first search is a horizontal approach, searching horizontal levels of the tree from top to bottom. So, you would start at the root node, then move to its children, them move to their children, and so on, only moving down after the horizontal level of children has been exhausted. 
+
+5. Explain in your own words what an undirected, a-cyclic, unweighted graph is.
+
+The adjectives are great in understanding this, undirected means that in traversing this graph their is more than one direction that can be taken. A-cyclic means that you can traverse the graph from one end to the other reaching a dead end at some point, without cycling back around to a node that you have already traversed. Unweighted means that nodes are not identified with any particular weight parameter, so they are all equal in their composition and you could say they all carry equal weight, by not having any weight. So, to summarize, an undirected, a-cyclic, unweighted graph is a graph that you can traverse in more than one direction, having a beginning and an end, with no weight assigned to any node. 
+
+6. What kind of graph is a binary search tree?
+
+A binary search tree is an undirected, a-cyclic, unweighted graph. 
+
+Programming Questions
+
+1. Given a Binary Search Tree and a value, write a function that checks to see whether the value exists within the tree.
+
+Given the binary search tree depicted, nodes are assigned based on whether they are less than or greater than the root node being evaluated. Given this pattern, using if else logic you can traverse the tree until you find the desired node, or you reach a null value. If you find the desired node you return true, if you reach a null value, you return false. So the provided method, valueExists(), makes sense I have provided classes to give it context.
+
+class Node {
+  constructor(data, left = null, right = null) {
+    this.data = data;
+    this.left = left;
+    this.right = right;
+  };
+}
+
+class BinarySearch {
+  constructor() {
+    this.root = null;
+  };
+
+  add(data) {
+    const node = this.root;
+    if (node === null) {
+      this.root = new Node(data);
+      return;
+    } else {
+      const searchTree = (node) => {
+        if (data < node.data) {
+          if (node.left === null) {
+            node.left = new Node(data);
+            return;
+          } else if (node.left !== null) {
+            return searchTree(node.left);
+          }
+        } else if (data > node.data) {
+          if (node.right === null) {
+            node.right = new Node(data);
+            return;
+          } else if (node.right !== null) {
+            return searchTree(node.right);
+          }
+        } else {
+          return null;
+        }
+      };
+      return searchTree(node);
+    };
+  };
+
+  valueExists(data) {
+    let current = this.root;
+    while (current) {
+      if (data === current.data) {
+        return true;
+      }
+
+      if (data < current.data) {
+        current = current.left;
+      } else {
+        current = current.right;
+      }
+    }
+    return false;
+  };
+}
+
+2. Given a Binary Search Tree and two nodes, `n1` and `n2`, write a function that finds the distance between the two nodes.
+
+To do this you would first find the distance to n1, then the distance to n2 and add them together. Using the same logic as above you can add distance as a variable and track the distance as it traverses the tree to find the node. Then you can take the two distances and add them together, giving you the total distance between the two nodes. 
+
+Inserting this method into the class above will produce the desired results. 
+
+findDistance(nodeOne, nodeTwo) {
+  const findNode = (current, node) => {
+    let data = current.data;
+    let distance = 0;
+    if (data == node) {
+      distance = 0;
+      return distance;
+    } else {
+      while (data != node) {
+        if (node < data) {
+          current = current.left;
+          data = current.data;
+          distance++;
+        } else {
+          current = current.right;
+          data = current.data;
+          distance++;
+        }
+      }
+      return distance;
+    }
+  }
+  let distanceOne = findNode(this.root, nodeOne);
+  let distanceTwo = findNode(this.root, nodeTwo);
+  let result = distanceOne + distanceTwo;
+  return result;
+}
