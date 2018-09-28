@@ -1,0 +1,89 @@
+1. Using proper pseudo-code, desribe the following primitive algorithms:
+
+ - Making coffee
+  A:  Get electricity 
+      Get water
+      Get coffee maker
+      Get coffee pot
+      Get coffee filter 
+      Get ground coffee 
+      Set coffee maker next to electric outlet
+      Place coffee pot on heating surface of coffee maker
+      Fill coffee maker water reservoir to full line with water
+      Place coffee filter in coffee filter slot of coffee maker
+      Scoop 2 tablespoons of ground coffee per every 6 ounces of water into coffee filter
+      Plug coffee maker into electric outlet
+      Turn coffee pot on
+
+ - Washing dishes
+  A:  Get hot water
+      Get dish soap
+      Get sponge
+      Get dishes
+      Get sink
+      Get drying rack
+      Place dishes next to sink
+      Sort dishes by type
+        Utensils
+        Glassware
+        Plates
+        Bowls
+        Medium-sized objects
+        Pots and pans
+      Dampen sponge with hot water 
+      Add 3 - 4 drops of dish soap to sponge
+      Squeeze sponge to distribute dish soap evenly
+      For each dish type
+        For each dish
+          If suds exist on sponge
+            Scrub dish thoroughly until visibly clean
+            Rinse dish in hot water
+            Place dish on drying rack until dry
+          Else 
+            Dampen sponge with hot water
+            Add 1 - 2 drops of dish soap to sponge
+            Squeeze sponge to distribute dish soap evenly
+            Scrub dish thoroughly until visibly clean
+            Rinse dish in hot water
+            Place dish on drying rack until dry
+          End If
+        End For 
+      End For
+
+ - A choice of your own
+ - Brushing your teeth
+
+  A:  Get water
+      Get toothpaste
+      Get toothbrush
+      Mentally divide teeth into 8 sections, each section starting at back of mouth and continuing to middle of front teeth:
+        Top left outer
+        Top left inner
+        Top right outer
+        Top right inner
+        Bottom left outer
+        Bottom left inner
+        Bottom right outer
+        Bottom right inner
+      Place toothpaste on toothbrush
+      Run toothbrush under water so it wets toothpaste
+      Place toothbrush in mouth with brush at 45 degree angle to gums
+      For each section of teeth
+        Brush full section in small strokes keeping 45 degree angle for minimum 15 seconds
+      End For
+      Rinse mouth with water
+      Rinse toothbrush
+
+      
+
+2. As with the knot algorithm, there may be more than one way to solve the problem. It is essential to try to pick the best algorithm for a situation. Name three companies who created an algorithm that made them successful, e.g., Google's search algorithm. It doesn't need to be a tech example (such as a recipe or manufacturing a product). Google's algorithm produces more relevant results than other search engines; what about each of your cases make them stand out?
+
+A:  McDonalds and their production line I think would be an example of an algorithm that made them successful. I think it stands out because         they were first to achieve a successful fast food model. 
+
+    In the process of researching this I found a dog food company, topdogdinners.com, that uses an algorithm to create dog food specifically catered to your dog. This one stands out because of it's unique application. I can imagine this appeals to many dog lovers, and I've never heard of anything like it. 
+
+    EHarmony and other online dating services owe their success to their algorithms used to find matches. EHarmony stands out because it was the first big company in online dating, and based on their adds they seem to have a good success rate. 
+
+3. Hypothesize about what constitutes an efficient algorithm versus an inefficient algorithm.
+
+A: I think what constitutes an efficient algorithm is the right balance between resource use and operations. What I mean is you could write an algorithm that perfectly solves a problem, but requires an extraordinary amount of resources and large numbers of operations so it potentially takes more time just because of the demand placed on resources and the number of operations to perform. I would venture to guess that simplicity is key in writing algorithms, and at the end of the day finding the right balance of resource use and operations to achieve your goal as quickly as possible. I think an inefficent algorithm is one that takes an impractical amount of time to execute. 
