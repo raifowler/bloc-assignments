@@ -1,0 +1,33 @@
+1. Define and compare recursion and iteration.
+
+A: Recursion is repeatedly applying smaller solutions to the same problem until a base case is met which results in a full solution to the same problem. Iteration is when you step through each item in a collection of items applying some sort of procedure to them until a condition is reached. The two are similar and both can be implemented to solve the same problem in their own way, but recursion can be less performant due to how it uses memory. For a large or unknown input, iteration is a better solution. For smaller inputs recursion can be a good solution due to it's readability and ease of implementation. 
+
+2. Name five algorithms that are commonly implemented by recursion.
+
+A:  - Factorial of a number
+    - Greatest common divisor
+    - Recursive binary search
+    - Reversing a string
+    - Linked list print
+
+3. When should you use recursion, and when should you avoid recursion? Give examples for each.
+
+A: You should use recursion when you have a problem that can naturally be broken into smaller problems to solve the larger one. You should avoid it, if in the process of doing so you create an exponential number of operations as your input increases. 
+
+
+
+4. Compare the recursive and iterative solutions to the three algorithm from the checkpoint (`factorial`, `maximum`, and `fibonacci`). What is similar, and what is different?
+
+A: 
+
+5. Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection.
+
+A:
+
+ 6. A palindrome is a word or phrase whose spelling is the same either direction (e.g., racecar). Write a recursive algorithm to determine it a given word or phrase is a palindrome.
+
+ A: 
+
+ 7. Google Easter Egg: Google the term "recursion". Google will prompt you with "Did you mean: recursion". Explain why this behavior exhibits properties of recursion.
+
+ A: 
