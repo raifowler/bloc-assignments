@@ -52,6 +52,66 @@ customers.add("Jill", "123 Apple Street", 1234567890);
 
 console.log(customers.find(1234567890));
 
+
+********** REVISED ANSWER **********
+
+class CustomerList {
+  constructor(storageLimit) {
+    this.storage = [];
+    this.storageLimit = storageLimit;
+  }
+
+  hash(string, max) {
+    let hash = 0;
+    for(let i = 0; i < string.length; i++) {
+      hash += string.charCodeAt(i);
+    }
+    return hash % max;
+  }
+
+  add(name, address, phone) {
+    let index = this.hash(phone, this.storageLimit);
+    if(this.storage[index] === undefined) {
+      this.storage[index] = [
+        [phone, { Name: name, Address: address, Phone: phone }]
+      ];
+    } else {
+      let inserted = false;
+      for(let i = 0; i < this.storage[index].length; i++) {
+        if(this.storage[index][i][0] === phone) {
+          this.storage[index][i][1] = { Name: name, Address: address, Phone: phone };
+          inserted = true;
+        }
+      }
+      if(inserted === false) {
+        this.storage[index].push([phone, { Name: name, Address: address, Phone: phone }]);
+      }
+    }
+  };
+
+  find(phone) {
+    let index = this.hash(phone, this.storageLimit);
+    if(this.storage[index] === undefined) {
+      return undefined;
+    } else {
+      for(let i = 0; i < this.storage[index].length; i++) {
+        if(this.storage[index][i][0] === phone) {
+          return this.storage[index][i][1];
+        }
+      }
+    }
+  };
+
+}
+
+let customers = new CustomerList(10);
+
+customers.add("Jill", "123 Apple Street", 1234567890);
+
+console.log(customers.find(1234567890));
+
+
+
 7. Build a system that allows a store owner to track their store's inventory using a hash table for storage.
 
 class Inventory {
@@ -82,6 +142,75 @@ storeInventory.updateItemQuantity(98765, 7);
 
 console.log(storeInventory.findItem(14578));
 
+********** REVISED ANSWER **********
+
+class Inventory {
+  constructor(storageLimit) {
+    this.storage = [];
+    this.storageLimit = storageLimit;
+  }
+
+  hash(string, max) {
+    let hash = 0;
+    for (let i = 0; i < string.length; i++) {
+      hash += string.charCodeAt(i);
+    }
+    return hash % max;
+  }
+
+  add(barcode, description, price, quantity) {
+    let index = this.hash(barcode, this.storageLimit);
+    if (this.storage[index] === undefined) {
+      this.storage[index] = [
+        [barcode, { Barcode: barcode, Description: description, Price: price, Quantity: quantity }]
+      ];
+    } else {
+      let inserted = false;
+      for (let i = 0; i < this.storage[index].length; i++) {
+        if (this.storage[index][i][0] === barcode) {
+          this.storage[index][i][1] = { Barcode: barcode, Description: description, Price: price, Quantity: quantity };
+          inserted = true;
+        }
+      }
+      if (inserted === false) {
+        this.storage[index].push([barcode, { Barcode: barcode, Description: description, Price: price, Quantity: quantity }]);
+      }
+    }
+  };
+
+  find(barcode) {
+    let index = this.hash(barcode, this.storageLimit);
+    if (this.storage[index] === undefined) {
+      return undefined;
+    } else {
+      for (let i = 0; i < this.storage[index].length; i++) {
+        if (this.storage[index][i][0] === barcode) {
+          return this.storage[index][i][1];
+        }
+      }
+    }
+  };
+
+  update(barcode, quantity) {
+    // let index = this.hash(barcode, this.storageLimit);
+    let item = this.find(barcode);
+    item.Quantity = quantity;
+  }
+
+}
+
+let bikeInventory = new Inventory(10);
+
+bikeInventory.add(1234567890, 'Bike 1', 100, 5);
+bikeInventory.add(2345678901, 'Bike 2', 200, 5);
+bikeInventory.add(3456789012, 'Bike 3', 300, 5);
+
+bikeInventory.update(1234567890, 4);
+
+console.log(bikeInventory.find(1234567890));
+
+console.log(bikeInventory);
+
 8. Build a system that allows digital copies of newpapers to be entered and searched by publisher and publication date. Use hash tables to store the necessary data.
 
 class NewspaperList {
@@ -103,7 +232,7 @@ class NewspaperList {
       }
     })
 
-    if (result === null) {
+    if (result === null) { m
       result = 'Newspaper not found';
     }
 
@@ -118,3 +247,70 @@ newspapers.addNewspaper(34567, 'Wall Street Journal', '09-27-2018', 'Second news
 newspapers.addNewspaper(56789, 'New York Times', '09-27-2018', 'Third newspaper entry');
 
 console.log(newspapers.search('New York Times', '09-26-2018'));
+
+
+********** REVISED ANSWER **********
+
+class NewspaperList {
+  constructor(storageLimit) {
+    this.storage = [];
+    this.storageLimit = storageLimit;
+  }
+
+  hash(string, max) {
+    let hash = 0;
+    for (let i = 0; i < string.length; i++) {
+      hash += string.charCodeAt(i);
+    }
+    return hash % max;
+  }
+
+  add(barcode, publisher, date, content) {
+    let index = this.hash(barcode, this.storageLimit);
+    if (this.storage[index] === undefined) {
+      this.storage[index] = [
+        [barcode, { Barcode: barcode, Publisher: publisher, Date: date, Content: content }]
+      ];
+    } else {
+      let inserted = false;
+      for (let i = 0; i < this.storage[index].length; i++) {
+        if (this.storage[index][i][0] === barcode) {
+          this.storage[index][i][1] = { Barcode: barcode, Publisher: publisher, Date: date, Content: content };
+          inserted = true;
+        }
+      }
+      if (inserted === false) {
+        this.storage[index].push([barcode, { Barcode: barcode, Publisher: publisher, Date: date, Content: content }]);
+      }
+    }
+    console.log(index);
+  };
+
+  find(publisher, date) {
+    let result = null;
+    this.storage.forEach(index => {
+      index.forEach(array => {
+        let newspaper = array[1];
+        if (Object.values(newspaper).includes(publisher) && Object.values(newspaper).includes(date)) {
+          result = newspaper;
+        }
+      })
+    })
+    if (result === null) {
+      result = 'Newspaper not found';
+    }
+    return result;
+  };
+
+}
+
+let newspapers = new NewspaperList(10);
+
+newspapers.add(1234567890, 'New York Times', '01-01-2018', 'Article 1');
+newspapers.add(2345678901, 'Wall Street Journal', '01-01-2018', 'Article 1');
+newspapers.add(3456789012, 'Chicago Sun Times', '01-01-2018', 'Article 1');
+newspapers.add(4567890123, 'Los Angeles Times', '01-01-2018', 'Article 1');
+
+console.log(newspapers.find('Los Angeles Times', '01-01-2018'));
+
+console.log(newspapers);
