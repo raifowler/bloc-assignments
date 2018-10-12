@@ -14,20 +14,58 @@ A:  - Factorial of a number
 
 A: You should use recursion when you have a problem that can naturally be broken into smaller problems to solve the larger one. You should avoid it, if in the process of doing so you create an exponential number of operations as your input increases. 
 
-
-
 4. Compare the recursive and iterative solutions to the three algorithm from the checkpoint (`factorial`, `maximum`, and `fibonacci`). What is similar, and what is different?
 
-A: 
+A: The similarities are that you step through each number in both solutions, the difference is how you step through those numbers. In the iterative implementation you step through each until a condition is met, or not met, potentially making changes as you go. You're not recalling the function over and over on the previous result, you're just stepping one by one through each number of provided inputs. In the recursive implementation you set a base case, and a recursive case, and the recursive case is what causes the repeated operation stepping through each number until the base case is met. You have a function that repeats over and over making a change to the item that is being tested against the base case to determine if it meets or not. 
 
 5. Given a multi-dimensional collection (such as an array) where the number of dimensions is unknown, write a recursive algorithm to count the number of items in the entire collection.
 
 A:
+const countCollection = (collection) => {
+  const flattenArray = (oldArray, newArray = []) => {
+    if (oldArray.length === 0) return newArray;
+    let [head, ...tail] = oldArray;
+    if (!Array.isArray(head)) {
+      return flattenArray(tail, newArray.concat(head));
+    } else {
+      return flattenArray(tail, newArray.concat(flattenArray(head)));
+    }
+  }
 
- 6. A palindrome is a word or phrase whose spelling is the same either direction (e.g., racecar). Write a recursive algorithm to determine it a given word or phrase is a palindrome.
+  let result = flattenArray(collection).length;
+  return result;
+}
+
+let collection1 = ['item1'];
+let collection2 = ['item2', 'item3', 'item4'];
+let collection3 = ['item5'];
+let collection4 = ['item6', 'item7', 'item8'];
+let collection5 = ['item9', 'item10', 'item11'];
+
+collection4.push(collection5);
+collection3.push(collection4);
+collection1.push(collection2);
+collection1.push(collection3);
+
+console.log(countCollection(collection1));
+
+ 6. A palindrome is a word or phrase whose spelling is the same either direction (e.g., racecar). Write a recursive algorithm to determine if a given word or phrase is a palindrome.
 
  A: 
+ const isPalindrome = (string) => {
+  let lowerCase = string.toLowerCase();
+  if (lowerCase.length === 0 || lowerCase.length === 1) {
+    return true;
+  }
+  if (lowerCase[0] === lowerCase[lowerCase.length - 1]) {
+    return isPalindrome(lowerCase.slice(1, lowerCase.length - 1));
+  }
+  return false;
+}
+
+console.log(isPalindrome('Racecar'));
+console.log(isPalindrome('method')); 
 
  7. Google Easter Egg: Google the term "recursion". Google will prompt you with "Did you mean: recursion". Explain why this behavior exhibits properties of recursion.
 
- A: 
+ A:  This exhibits recursion because it is repeating the same process over and over as many times as you click the link `recursion`.
