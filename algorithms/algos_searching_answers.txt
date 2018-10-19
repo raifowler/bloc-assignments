@@ -1,0 +1,66 @@
+1. What is a real-life scenario that uses linear search?
+
+A: When I look for a certain dollar value in my wallet. I open my wallet and begin with the first bill, then look at the next and keep looking in that way until I find the value I'm looking for. 
+
+2. What is a real-life scenario that uses binary search?
+
+A: Looking up a dictionary definition of a word. It may not be 100% binary, because the first time you open the dictionary you usually start where you think the word will be instead of opening it halfway, but it's the same divide and conquer principle. 
+
+3. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using linear search?
+
+A: It would take 7 iterations to get to G using linear search.
+
+4. Given the alphabetically sorted collection in this checkpoint, how many iterations would it take to find the value G using binary search?
+
+A: It would take 3 iterations to get to G using binary search.
+
+5. Given the unsorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning.
+
+A: Binary search requires the collection to be sorted so I would need to use linear search in this case. 
+
+6. Given a sorted collection of a million items, which algorithm would you choose between linear search and binary search? Explain your reasoning. 
+
+A: Since this collection is sorted I would use binary search, because the time complexity of linear search is n, and the time complexity of binary search is log n.
+
+Programming Assignment:
+
+1. You and a friend have set a wager to see who can find the word 'Albatross' in the dictionary the fastest. Write a program to allow you to win the bet. 
+
+let dictionary = ['academus','adagio', 'albatross', 'belt', 'beribboned', 'booklet', 'comber', 'convening', 'counterbalance'];
+
+const findWord = (string, sortedCollection) => {
+  let low = sortedCollection.indexOf(sortedCollection[0]);
+  let high = sortedCollection.indexOf(sortedCollection[sortedCollection.length - 1]);
+  
+  while (low <= high) {
+    let mid = Math.ceil((low + high) / 2);
+    
+    if (sortedCollection[mid] > string) {
+      high = mid - 1;
+    } else if (sortedCollection[mid] < string) {
+      low = mid + 1;
+    } else {
+      return sortedCollection[mid]
+    }
+  };
+  
+  return 'Not Found'
+};
+
+console.log(findWord('albatross', dictionary));
+
+2. You work at a pet store, and a child has asked you to net the only white-spotted goldfish from the fish tank. Write a program that will help you net the right fish.
+
+let fish = ['angelfish', 'tetra', 'green swordtail', 'guppy', 'white-spotted goldfish', 'goldfish']
+
+const getFish = (fish, unsortedCollection) => {
+  for (let i = 0; i < unsortedCollection.length; i++) {
+    let value = unsortedCollection[i];
+    if (value === fish) {
+      return value;
+    }
+  }
+  return 'Not found';
+}
+
+console.log(getFish('white-spotted goldfish', fish));
